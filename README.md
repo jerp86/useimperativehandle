@@ -24,11 +24,14 @@
 
 ---
 
-<img src="https://user-images.githubusercontent.com/54115624/191345586-76a4376b-64fa-4cf5-a020-28bcdfed4ef8.jpeg" width="600">
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/54115624/191345586-76a4376b-64fa-4cf5-a020-28bcdfed4ef8.jpeg" width="600" />
+</div>
 
 ## :information_source: Sobre
 
-[Referências de Forma Avançada no React](https://youtu.be/7crxexAIz3w) - por [Luis Filipe Pedroso](@LuisFilipePedroso).
+[Referências de Forma Avançada no React](https://youtu.be/7crxexAIz3w) - por [Luis Filipe Pedroso](https://github.com/LuisFilipePedroso).
+
 https://youtu.be/7crxexAIz3w
 
 ## :interrobang: Motivo
