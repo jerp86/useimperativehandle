@@ -13,7 +13,7 @@ const Profile = () => (
       />
     </Flex>
 
-    <Flex flexDirection="column" marginLeft={4}>
+    <Flex flexDirection="column" justifyContent="center" marginLeft={4}>
       <Text fontSize="2xl" fontWeight="semibold" color="#3943B7">
         José Pinto
       </Text>
