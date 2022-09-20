@@ -6,28 +6,28 @@ import Profile from "./component/Profile";
 
 const images = [
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GrapQL_Logo.svg.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
   },
   {
-    src: "https://relay.dev/img/relay.svg",
+    src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1200px-Nextjs-logo.svg.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Progressive_Web_Apps_Logo.svg",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Redux_Logo.png/320px-Redux_Logo.png",
   },
   {
-    src: "https://relay.dev/img/relay.svg",
+    src: "https://cdn-images-1.medium.com/max/1200/1*y1fCsOVCYCTi1B9Q_0BOYg.png",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1200px-GrapQL_Logo.svg.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/e/e3/ESLint_logo.svg",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1200px-Nextjs-logo.svg.png",
+    src: "https://upload.wikimedia.org/wikipedia/commons/4/4f/SVG_Logo.svg",
   },
   {
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    src: "https://camo.githubusercontent.com/973c99d17e4ce72d08c4433449045d8391948711f11ac5f328a585e2a7bc8663/68747470733a2f2f692e696d6775722e636f6d2f515a6f776e68672e706e67",
   },
 ];
 
