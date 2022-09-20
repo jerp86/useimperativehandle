@@ -7,6 +7,8 @@ interface ImageType {
 
 interface Props {
   images: ImageType[];
+  customPreviousButton?: JSX.Element;
+  customNextButton?: JSX.Element;
 }
 
 const Gallery = (props: Props) => {
@@ -43,8 +45,10 @@ const Gallery = (props: Props) => {
     setEnd((_end) => _end + 4);
   }, []);
 
-  const PreviousButton = useCallback(
-    () => (
+  const PreviousButton = useCallback(() => {
+    if (props.customPreviousButton) return props.customPreviousButton;
+
+    return (
       <Button
         onClick={previousPage}
         background="transparent"
@@ -58,12 +62,13 @@ const Gallery = (props: Props) => {
       >
         {"<"}
       </Button>
-    ),
-    [previousPage, hasNextPage]
-  );
+    );
+  }, [props.customPreviousButton, previousPage, hasNextPage]);
 
-  const NextButton = useCallback(
-    () => (
+  const NextButton = useCallback(() => {
+    if (props.customNextButton) return props.customNextButton;
+
+    return (
       <Button
         onClick={nextPage}
         background="transparent"
@@ -77,12 +82,10 @@ const Gallery = (props: Props) => {
       >
         {">"}
       </Button>
-    ),
-    [nextPage, hasNextPage]
-  );
+    );
+  }, [props.customNextButton, nextPage, hasNextPage]);
 
   useEffect(() => {
-    console.log(`Start: ${start}, End: ${end}, HasNextPage: ${hasNextPage}`);
     setHasNextPage(end < props.images.length - 1);
   }, [end, props.images]);
 
