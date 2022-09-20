@@ -1,7 +1,7 @@
 import { Button, ChakraProvider, Flex, Image, Text } from "@chakra-ui/react";
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 
-import Gallery from "./component/Gallery";
+import Gallery, { GalleryRefType } from "./component/Gallery";
 import Profile from "./component/Profile";
 
 const images = [
@@ -32,10 +32,14 @@ const images = [
 ];
 
 function App() {
-  const PreviousButton = useCallback(
-    () => (
+  const galleryRef = useRef<GalleryRefType>(null);
+
+  const PreviousButton = useCallback(() => {
+    if (!galleryRef.current) return null;
+
+    return (
       <Button
-        onClick={() => {}}
+        onClick={galleryRef.current.previousPage}
         background="transparent"
         border="none"
         width="50px"
@@ -43,7 +47,7 @@ function App() {
         fontSize="xl"
         position="absolute"
         left={0}
-        // disabled={hasNextPage}
+        disabled={!galleryRef.current.hasNextPage}
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Chevron_left_font_awesome.svg/30px-Chevron_left_font_awesome.svg.png"
@@ -51,14 +55,15 @@ function App() {
           width="30px"
         />
       </Button>
-    ),
-    []
-  );
+    );
+  }, []);
 
-  const NextButton = useCallback(
-    () => (
+  const NextButton = useCallback(() => {
+    if (!galleryRef.current) return null;
+
+    return (
       <Button
-        onClick={() => {}}
+        onClick={galleryRef.current.nextPage}
         background="transparent"
         border="none"
         width="50px"
@@ -66,7 +71,7 @@ function App() {
         fontSize="xl"
         position="absolute"
         right={0}
-        // disabled={!hasNextPage}
+        disabled={galleryRef.current.hasNextPage}
       >
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Chevron_right_font_awesome.svg/30px-Chevron_right_font_awesome.svg.png"
@@ -74,9 +79,8 @@ function App() {
           width="30px"
         />
       </Button>
-    ),
-    []
-  );
+    );
+  }, []);
 
   return (
     <ChakraProvider>
@@ -99,6 +103,7 @@ function App() {
           </Text>
 
           <Gallery
+            ref={galleryRef}
             images={images}
             customNextButton={<NextButton />}
             customPreviousButton={<PreviousButton />}
