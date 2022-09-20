@@ -1,5 +1,12 @@
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
-import { memo, useCallback, useEffect, useState } from "react";
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from "react";
 
 interface ImageType {
   src: string;
@@ -11,7 +18,13 @@ interface Props {
   customNextButton?: JSX.Element;
 }
 
-const Gallery = (props: Props) => {
+export type GalleryRefType = {
+  hasNextPage: boolean;
+  previousPage: () => void;
+  nextPage: () => void;
+};
+
+const Gallery = forwardRef<GalleryRefType, Props>((props, ref) => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(4);
   const [hasNextPage, setHasNextPage] = useState(false);
@@ -85,6 +98,16 @@ const Gallery = (props: Props) => {
     );
   }, [props.customNextButton, nextPage, hasNextPage]);
 
+  useImperativeHandle(
+    ref,
+    () => ({
+      hasNextPage,
+      previousPage,
+      nextPage,
+    }),
+    [hasNextPage, previousPage, nextPage]
+  );
+
   useEffect(() => {
     setHasNextPage(end < props.images.length - 1);
   }, [end, props.images]);
@@ -102,6 +125,6 @@ const Gallery = (props: Props) => {
       <NextButton />
     </Flex>
   );
-};
+});
 
 export default memo(Gallery);
